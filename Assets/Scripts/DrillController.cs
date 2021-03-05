@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DrillController : MonoBehaviour {
     public float constantSpeed = 1f;
-    public int xp;
-    public float health;
+    public int xp = 0;
+    public float health = 100f;
 
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -18,6 +19,8 @@ public class DrillController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Enter" + " ore trigger");
         if (other.gameObject.tag.Equals("Ore")) {
+            rb.AddForce(new Vector3(0,3,0));//bounce back
+            health -= 10f;
             Destroy(other.gameObject);
         }
     }
@@ -28,5 +31,11 @@ public class DrillController : MonoBehaviour {
         if (rb.velocity.sqrMagnitude < constantSpeed) {
             rb.AddForce(new Vector3(0,-constantSpeed,0));
         }
+    }
+
+    private void OnGUI() {
+        Label l = new Label() {
+            name = "health?"
+        };
     }
 }

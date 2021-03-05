@@ -152,9 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f8131c8b7d0c94f87ad66e356b07bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oreColider: []
   oreList:
-  - {fileID: 7951932826140094900, guid: d40429f1469285c46a2a527e39e1637c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -164,6 +162,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  Player: {fileID: 1803525830}
 --- !u!4 &783921299
 Transform:
   m_ObjectHideFlags: 0
