@@ -1,8 +1,7 @@
 public enum OreType {
-    none,
-    iron,
-    platnium,
-    titanium,
-    lithium,
-    uranium,
+    none = 0,
+    iron = 1,
+    platnium = 2,
+    lithium = 3,
+    uranium = 4
 }

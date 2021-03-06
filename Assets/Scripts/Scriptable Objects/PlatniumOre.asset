@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 060f66cb90e548b0b0e6a0cfed85712d, type: 3}
-  m_Name: IronOre
+  m_Name: PlatniumOre
   m_EditorClassIdentifier: 
-  health: 10
-  type: 1
-  texture: {fileID: 21300000, guid: 6b6c7182482667c49aa665872d981df6, type: 3}
+  health: 15
+  type: 2
+  texture: {fileID: 21300000, guid: ae6dcd31eddc3cf48a60db253fba51a9, type: 3}
