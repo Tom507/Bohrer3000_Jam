@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060f66cb90e548b0b0e6a0cfed85712d, type: 3}
   m_Name: IronOre
   m_EditorClassIdentifier: 
-  health: 0
-  type: 0
-  texture: {fileID: 0}
+  health: 10
+  type: 1
+  texture: {fileID: 21300000, guid: 6b6c7182482667c49aa665872d981df6, type: 3}

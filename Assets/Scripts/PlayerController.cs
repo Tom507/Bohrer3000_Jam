@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 mousePosition;
     private Vector3 direction;
     private Rigidbody rb;
-    private Rigidbody rigidbodyTrigger;
+    public UnityEngine.Camera camera;
 
     public float movespeed = 10f;
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
     void followMouse() {
         //follow mouse cursor?
-        mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - transform.position).normalized;
         rb.velocity = new Vector3(direction.x * movespeed, direction.y * movespeed, 0);
     }
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         Debug.Log("Drilling");
         heat++;
+        Debug.Log(other.gameObject.name);
         //GetComponent<OreController>().health--;//works like this?
     }
 
