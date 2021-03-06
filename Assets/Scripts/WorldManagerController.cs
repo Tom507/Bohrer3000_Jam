@@ -49,12 +49,12 @@ public class WorldManagerController : MonoBehaviour {
                 
                 Ore tmpOre = oreList[Random.Range(0, oreList.Count)];
                 gobj.AddComponent<SpriteRenderer>();
-                gobj.GetComponent<SpriteRenderer>().sprite = tmpOre.texture;
+                gobj.GetComponent<SpriteRenderer>().sprite = tmpOre.oreTexture;
                 
                 gobj.AddComponent<OreController>();
                 gobj.GetComponent<OreController>().health = tmpOre.health;
                 gobj.GetComponent<OreController>().type = tmpOre.type;
-                gobj.GetComponent<OreController>().oreTexture = tmpOre.texture;
+                gobj.GetComponent<OreController>().oreTexture = tmpOre.oreTexture;
                 
                 gobj.AddComponent<CapsuleCollider>();
                 gobj.GetComponent<CapsuleCollider>().radius = 1.5f;
