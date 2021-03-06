@@ -19,13 +19,8 @@ public class DrillController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Enter" + " ore trigger");
         if (other.gameObject.tag.Equals("Ore")) {
-<<<<<<< Updated upstream
-            rb.AddForce(new Vector3(0,3,0));//bounce back
-            health -= 10f;
-=======
             rb.AddForce(new Vector3(0,30,0));//bounce back
             health -= other.gameObject.GetComponent<OreController>().health;
->>>>>>> Stashed changes
             Destroy(other.gameObject);
         }
     }
