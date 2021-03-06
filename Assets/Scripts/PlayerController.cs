@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         followMouse();
-        if (!isDrilling) {
-            heat++;
+        if (!isDrilling & heat > 0) {
+            heat--;
         }
     }
 
@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         Debug.Log("Drilling");
-        heat--;
+        heat++;
+        //GetComponent<OreController>().health--;//works like this?
     }
 
     private void OnTriggerExit(Collider other) {
