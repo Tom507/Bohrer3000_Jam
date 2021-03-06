@@ -26,7 +26,7 @@ public class WorldManagerController : MonoBehaviour {
     private float stepIndex; //to not generte every frame
     private float heightOffset = 10f; //from drill
     private float width = 15f; //genBox x
-    private float height = 5f; //genBox y
+    private float height = 5f; //genBox y kk
     void oreGeneration() {
         if (stepIndex < 0f) {
             stepIndex = defaultStepIndex; //reset stepIndex
