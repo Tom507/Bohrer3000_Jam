@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour {
     private Vector3 mousePosition;
@@ -11,9 +13,16 @@ public class PlayerController : MonoBehaviour {
 
     public float movespeed = 10f;
 
-    private bool isDrilling = false;
+    public bool isDrilling = false;
+    
+    public float heat = 0;
+    public float maxHeat = 10f;
+    public bool isOverHeated = false;
+    public float heatUpRatio = 1f;
+    public float coolDownRatio = 0.25f;
+    public float damage = 0.5f;
 
-    private float heat = 0;
+    public GameObject lastDrilledOre;
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -22,9 +31,11 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         followMouse();
-        if (!isDrilling & heat > 0) {
-            heat--;
-        }
+        if (!isOverHeated & heat > maxHeat) isOverHeated = true;
+        //check if is overheated
+        if (isOverHeated & heat < 0) isOverHeated = false;
+        //default cooldown
+        if (!isDrilling & heat > 0) heat -= coolDownRatio * Time.deltaTime;
     }
 
     void followMouse() {
@@ -35,19 +46,26 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("Entered Trigger/ore");
+        //Debug.Log("Entered Trigger/ore");
         isDrilling = true;
+        lastDrilledOre = other.gameObject;
     }
 
     private void OnTriggerStay(Collider other) {
-        Debug.Log("Drilling");
-        heat++;
-        Debug.Log(other.gameObject.name);
-        //GetComponent<OreController>().health--;//works like this?
+        if (!isOverHeated & other.gameObject.tag.Equals("Ore")) {
+            print("Drilling");
+            isDrilling = true;
+            heat += heatUpRatio * Time.deltaTime;
+            
+            other.gameObject.GetComponent<OreController>().DoDamage(damage);
+            if (other.gameObject.GetComponent<OreController>().health < 0) {
+                isDrilling = false;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other) {
-        Debug.Log("Trigger Left");
+        //Debug.Log("Trigger Left");
         isDrilling = false;
     }
 }

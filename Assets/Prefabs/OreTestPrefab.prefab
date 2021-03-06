@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7529687352293678035}
   - component: {fileID: 7529687352293678034}
+  - component: {fileID: 7747965313549168519}
   m_Layer: 0
   m_Name: OreTestPrefab
   m_TagString: Ore
@@ -46,6 +47,21 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7747965313549168519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529687352293676077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b745e729139f4e228090b5da8a64ad84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  type: 1
+  oreTexture: {fileID: 21300000, guid: 6b6c7182482667c49aa665872d981df6, type: 3}
 --- !u!1 &7529687352904278879
 GameObject:
   m_ObjectHideFlags: 0
